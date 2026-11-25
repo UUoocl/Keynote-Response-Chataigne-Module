@@ -1,6 +1,19 @@
 # Keynote Response Custom Module (WebSocket Server)
 
-A Chataigne community custom module based on `WebSocket Server` that receives and parses Apple Keynote slide telemetry JSON sent by [Keynote-Chataigne-Module](https://github.com/UUoocl/Keynote-Chataigne-Module).
+A Chataigne community custom module based on `WebSocket Server` that receives and parses Apple Keynote slide telemetry JSON sent by the companion [Keynote-Chataigne-Module](https://github.com/UUoocl/Keynote-Chataigne-Module).
+
+## Architecture
+
+```
+Chataigne (Keynote / OS Module)
+  └──▶ WebSocket client (JSON text frame)
+        ▼
+Chataigne (Keynote Response / WebSocket Server, Protocol: JSON)
+  ├──▶ Auto-parses JSON into pre-declared & dynamic Chataigne Values
+  └──▶ keynoteResponse.js
+        ├── fires responseReceived / slideChanged triggers
+        └── logs Keynote errors via script.logWarning
+```
 
 ## Features
 
