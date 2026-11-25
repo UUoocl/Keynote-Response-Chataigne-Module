@@ -1,0 +1,109 @@
+{
+  "name": "Keynote Response",
+  "type": "WebSocket Server",
+  "path": "Software",
+  "version": "1.0.0",
+  "description": "Receives and parses Apple Keynote slide telemetry JSON sent over WebSocket by the Keynote module",
+  "url": "https://github.com/UUoocl/Keynote-Response-Chataigne-Module",
+  "hasInput": true,
+  "hasOutput": false,
+  "hideDefaultCommands": true,
+  "defaults": {
+    "protocol": "JSON",
+    "localPort": 8080,
+    "autoAdd": true
+  },
+  "hideDefaultParameters": [
+    "useSecureConnection",
+    "protocol",
+    "autoAdd",
+    "messageStructure",
+    "customSeparator",
+    "firstValueIsTheName",
+    "passThrough"
+  ],
+  "parameters": {},
+  "values": {
+    "ok": {
+      "type": "Boolean",
+      "default": false,
+      "readOnly": true,
+      "description": "Whether the last Keynote JXA action succeeded"
+    },
+    "action": {
+      "type": "String",
+      "default": "",
+      "readOnly": true,
+      "description": "Last Keynote action executed (next, previous, goto, start, stop, status)"
+    },
+    "running": {
+      "type": "Boolean",
+      "default": false,
+      "readOnly": true,
+      "description": "Whether Apple Keynote is currently running"
+    },
+    "playing": {
+      "type": "Boolean",
+      "default": false,
+      "readOnly": true,
+      "description": "Whether a Keynote slideshow is currently playing"
+    },
+    "documentName": {
+      "type": "String",
+      "default": "",
+      "readOnly": true,
+      "description": "Name of the active Keynote document"
+    },
+    "totalSlides": {
+      "type": "Integer",
+      "default": 0,
+      "min": 0,
+      "readOnly": true,
+      "description": "Total number of slides in the active Keynote document"
+    },
+    "slideNumber": {
+      "type": "Integer",
+      "default": 0,
+      "min": 0,
+      "readOnly": true,
+      "description": "Current slide number"
+    },
+    "slideTitle": {
+      "type": "String",
+      "default": "",
+      "readOnly": true,
+      "description": "Title text of the current slide"
+    },
+    "slideNotes": {
+      "type": "String",
+      "default": "",
+      "readOnly": true,
+      "description": "Presenter notes of the current slide"
+    },
+    "skipped": {
+      "type": "Boolean",
+      "default": false,
+      "readOnly": true,
+      "description": "Whether the current slide is marked as skipped"
+    },
+    "error": {
+      "type": "String",
+      "default": "",
+      "readOnly": true,
+      "description": "Error message if the last Keynote action failed"
+    },
+    "slideChanged": {
+      "type": "Trigger",
+      "readOnly": true,
+      "description": "Triggered when slideNumber or documentName changes"
+    },
+    "responseReceived": {
+      "type": "Trigger",
+      "readOnly": true,
+      "description": "Triggered whenever a WebSocket response arrives from Keynote"
+    }
+  },
+  "scripts": [
+    "keynoteResponse.js"
+  ]
+}
