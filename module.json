@@ -5,6 +5,7 @@
   "version": "1.0.0",
   "description": "Receives and parses Apple Keynote slide telemetry JSON sent over WebSocket by the Keynote module",
   "url": "https://github.com/UUoocl/Keynote-Response-Chataigne-Module",
+  "downloadURL": "https://github.com/UUoocl/Keynote-Response-Chataigne-Module/archive/main.zip",
   "hasInput": true,
   "hasOutput": false,
   "hideDefaultCommands": true,
